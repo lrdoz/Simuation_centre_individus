@@ -9,6 +9,8 @@ import json
 
 from src.wator.Shark import Shark
 from src.wator.Fish import Fish
+from src.wator.graph import Graph
+
 
 from pprint import pprint
 
@@ -44,6 +46,10 @@ class SMA:
         self.time = time
 
         self.displayGraph = displayGraph
+
+        if (displayGraph):
+            self.graph = Graph()
+
         self.sIntervale = sIntervale
 
         if (grid):
@@ -59,7 +65,7 @@ class SMA:
         self.env.removeDeadAgent()
 
         if(self.displayGraph):
-            self.env.updateGraph()
+            self.updateGraph()
 
         self.nturn+=1 # on incrémente le nombre de tour
         for i in range(0,self.refresh): # taux de refresh de la page
@@ -73,6 +79,15 @@ class SMA:
     def run(self):
         self.view.set_agent(self.time, self.env.l_agents, self.turn)
         self.view.mainloop()
+
+    def updateGraph(self):
+    """
+    Met à jour les graphes
+    """
+    
+    for agent in self.env.l_agents:
+        
+    self.graph.update(self.times, self.nbShark, self.nbFish)
 
 def parse():
     """

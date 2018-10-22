@@ -4,7 +4,15 @@
 
 ### Résumé
 
-Dans ce repertoire vous trouverez nos trois implémentation des TP1 2 et 3
+Dans ce repertoire vous trouverez nos trois implémentation des TP1, 2 et 3.
+Chaque implémentation de core ce trouve dans un repertoire spécifique du tp.
+Pour permettre une parfait hiérarchie objet, nous avons du délaisser l'aspect performance de notre implémentation.
+En effet, de nombreux calcul ont été laissé au agent, permettant leur indépendance, cependant si l'environement sans été
+occupé, le nombre d'accept à la grille aurait été fortement réduit.
+
+Exemple: Le TP1 il était possible de faire tourner 120 000 agent sur la première version, suite au réfacto ont peut en faire tourner que 80 000.
+
+Hormis ce léger problème l'enssemble des tps sont fonctionnels et implémentes toutes les fonctionnalités. 
 
 ### Implémentation
 
