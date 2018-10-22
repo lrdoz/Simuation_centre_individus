@@ -41,18 +41,19 @@ class View :
             x = agent.posX
             y = agent.posY
             isInit = self.isCanvasInit(agent)
+            color = agent.getColor()
 
             if not agent.isAlive() :
                 if isInit :
                     self.canvas.delete(agent.circle)
             else:
-                if (isInit):
+                if (isInit and agent.change):
+                    self.canvas.itemconfig(agent.circle, outline=color, fill=color)
                     self.canvas.coords(agent.circle, (x * self.size)+x + self.grid,
                                                         (y * self.size)+ y+ self.grid,
                                                         (x * self.size) + self.size + x - self.grid,
                                                         (y * self.size) + self.size + y - self.grid)
                 else:
-                    color = agent.getColor()
                     if (agent.getForm() == "circle"):
                         agent.circle = self.canvas.create_oval([(x * self.size)+x+ self.grid,
                                                             (y * self.size)+ y+ self.grid,

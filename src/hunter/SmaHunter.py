@@ -1,6 +1,6 @@
 #coding: utf-8
 from src.core.Env import Env
-from view import View
+from src.core.View import View
 
 from tkinter import *
 import random
@@ -9,12 +9,12 @@ import json
 import sys
 
 
-from src.core.Hunter import Hunter
-from src.core.Avatar import Avatar
-from src.core.Defender import Defender
-from src.core.Winner import Winner
-from src.core.Wall import Wall
-from getch import KeyListener
+from src.hunter.Hunter import Hunter
+from src.hunter.Avatar import Avatar
+from src.hunter.Defender import Defender
+from src.hunter.Winner import Winner
+from src.hunter.Wall import Wall
+from src.hunter.Getch import KeyListener
 from pynput import keyboard
 
 
@@ -56,7 +56,7 @@ class SMA:
         self.nbDefender = 0
         self.winner = False
         self.pause = False
-        
+
         self.keyL = KeyListener(self)
         self.keyL.start()
 
@@ -174,7 +174,7 @@ def parse():
     """
     Parse le fichier JSON de config
     """
-    with open('Properties.json') as data_file:
+    with open('src/hunter/Properties.json') as data_file:
         data = json.load(data_file)
         return data
 

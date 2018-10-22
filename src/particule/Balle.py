@@ -1,5 +1,6 @@
 #coding: utf-8
 from src.core.Agent import Agent
+import random
 
 """
 Contient les caractéristiques des particules et une méthode decide(), destinée à coder le processus de décision de ces particules
@@ -13,6 +14,9 @@ class Balle(Agent):
 
         self.change = 0
 
+        self.pasX = random.randint(-1,1)
+        self.pasY = random.randint(-1,1)
+
         self.torus = data[0]
 
     def swap_pas(self, agent):
@@ -23,7 +27,6 @@ class Balle(Agent):
         self.color = "red"
         agent.color = "red"
 
-        self.change = 1
 
     def decide(self, env):
         """
@@ -31,43 +34,57 @@ class Balle(Agent):
 
         :param env: Environement de l'agent
         """
-        self.change = 0
+        self.change = False
 
-        
+        # on fait bouger l'agent
         newPosX = self.posX + (self.pasX) # nouveau posX
         newPosY = self.posY + (self.pasY) # nouveau posY
 
-        newPos = self.correctPosition(env.l, env.h, newPosX, newPosY)
+        # renvoie la bonne position par rapport à l'environnement
+        newPosX, newPosY = self.correctPosition(env.l, env.h, newPosX, newPosY)
 
-        maybeAgent = self.getPositionAgent(newPos[0], newPos[1]) 
+        # vérifie qu'il n'y ait pas d'agent
+        maybeAgent = env.getPositionAgent(newPosX, newPosY)
 
-        if maybeAgent == None:
-            env.setAgentPosition(self, newPos[0], newPos[1])
-        
-        else:
-            agent.swap_pas(maybeAgent)
-            newPosX = agent.posX + agent.pasX # nouveau posX
-            newPosY = agent.posY + agent.pasY # nouveau posY
+        if maybeAgent == None: # si pas de balle à la nouvelle position, il y va
+            self.change = True
+            env.setAgentPosition(self, newPosX, newPosY)
+            self.setPosition(newPosX, newPosY)
 
+        else: # sinon, échange de valeur
+            self.swap_pas(maybeAgent)
 
-            newPos = self.correctPosition(env.l, env.h, newPosX, newPosY)
-            if (self.t):
-                newPosX = (newPosX+self.l)%self.l
-                newPosY = (newPosY+self.h)%self.h
-            else :
-                if (newPosX < 0): # on replace correctement la boule si besoin
-                    newPosX += 2
-                    agent.pasX *= -1
-                if ((self.l - newPosX) <= 1):
-                    newPosX -= 2
-                    agent.pasX *= -1
-                if (newPosY < 0):
-                    newPosY += 2
-                    agent.pasY *= -1
-                if ((self.h - newPosY) <= 1):
-                    newPosY -= 2
-                    agent.pasY *= -1
-        
+            newPosX = self.posX + self.pasX # nouveau posX
+            newPosY = self.posY + self.pasY # nouveau posY
+
+            newPosX, newPosY = self.correctPosition(env.l, env.h, newPosX, newPosY)
+
+            # maybeAgent = env.getPositionAgent(newPosX, newPosY)
+
+            # if maybeAgent == None:
+            self.change = True
+            env.setAgentPosition(self, newPosX, newPosY)
+            self.setPosition(newPosX, newPosY)
+            #
+            #
+            # newPos = self.correctPosition(env.l, env.h, newPosX, newPosY)
+            # if (self.t):
+            #     newPosX = (newPosX+self.l)%self.l
+            #     newPosY = (newPosY+self.h)%self.h
+            # else :
+            #     if (newPosX < 0): # on replace correctement la boule si besoin
+            #         newPosX += 2
+            #         agent.pasX *= -1
+            #     if ((self.l - newPosX) <= 1):
+            #         newPosX -= 2
+            #         agent.pasX *= -1
+            #     if (newPosY < 0):
+            #         newPosY += 2
+            #         agent.pasY *= -1
+            #     if ((self.h - newPosY) <= 1):
+            #         newPosY -= 2
+            #         agent.pasY *= -1
+
     def getColor(self):
         """
         Retourne la couleur de l'agent
@@ -85,22 +102,25 @@ class Balle(Agent):
         return "circle"
 
     def correctPosition(self, l, h, newPosX, newPosY):
+        """
+        Renvoie la position après avoir avancé, dépend de l'environnement, si le monde est torique ou non
+        """
         if (self.torus): # si le monde est torique
             newPosX = (newPosX+ l)% l
             newPosY = (newPosY+ h)% h
 
         else : # sinon
-            if (posX < 0): # on replace correctement la boule si besoin
+            if (newPosX < 0): # on replace correctement la boule si besoin
                 newPosX += 2
-                agent.pasX *= -1
-            if ((l - posX) < 1):
+                self.pasX *= -1
+            if ((l - newPosX) < 1):
                 newPosX -= 2
-                agent.pasX *= -1
-            if (posY < 0):
+                self.pasX *= -1
+            if (newPosY < 0):
                 newPosY += 2
-                agent.pasY *= -1
-            if ((h - posY) < 1):
+                self.pasY *= -1
+            if ((h - newPosY) < 1):
                 newPosY -= 2
-                agent.pasY *= -1
+                self.pasY *= -1
 
         return newPosX, newPosY

@@ -23,9 +23,16 @@ class Agent:
         """
         raise NotImplementedError( "Should have implemented this" )
 
+    def setPosition(self, posX, posY):
+        """
+        Méthode pour set la nouvelle position de l'agent
+        """
+        self.posX = posX
+        self.posY = posY
+
     def getType(self):
         """
-        Retourne le type de l'agent 
+        Retourne le type de l'agent
 
         :return: Retourne le type de l'agent
         """
@@ -52,7 +59,7 @@ class Agent:
         Permet de tuer l'agent
         """
         self.life = False
-    
+
     def isAlive(self):
         """
         Permet de savoir si l'agent est en vie

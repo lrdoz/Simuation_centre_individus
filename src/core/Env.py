@@ -1,4 +1,4 @@
-2
+
 import random
 import numpy as np
 
@@ -58,7 +58,7 @@ class Env:
     def unsetAgent(self, posX, posY):
         """
         Supprime l'agent de la grille qui se trouve à la position posX, posY
-        
+
         :param posX: Position x de l'agent
         :param posY: Position y de l'agent
         """
@@ -68,7 +68,7 @@ class Env:
     def getValue(self, posX, posY):
         """
         Retourne la valeur de la case posX, posY
-        
+
         :param posX: Position x de la valeur
         :param posY: Position y de la valeur
         :return: Valeur de la case posX, posY
