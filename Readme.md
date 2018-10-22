@@ -4,6 +4,10 @@
 
 ### TP1 - Objectif
 
+L'objectif du tp est de similué un environement contenant des agents ce déplacent et intéragissent avec d'autre agent.
+Les agents sont des billes, possédant un vecteur de déplacement, et ce déplacent au siens de l'environement.
+L'intéraction entre agents, est fait lorsque deux agents se collisione, dans ces cas la un comportement .  
+
 ### TP1 - Implémentation
 
 ### TP1 - Question
@@ -17,8 +21,8 @@
     * Si une bille est là où je dois aller, je ne fais rien
     * Si une bille est la où je dois aller, j'inverse ma direction
     * Si une bille est la où je dois aller, j'inverse ma direction avec l'autre
-    Que se passe t-il dans ces diffénts cas? Quel est le comportement qui fournit le meilleur rendu?
 
+    Que se passe t-il dans ces diffénts cas? Quel est le comportement qui fournit le meilleur rendu?
 
 ### TP1 - Reponse
 
@@ -26,11 +30,16 @@
 
 2. prout
 
-3.
-    * Premier comportement : forme des tas de particules
-    * Deuxième comportement : les particules inertes le resteront et les boules iront toujours dans un sens ou dans son sens inverse, càd si une balle se déplace en diagonal, alors, elle ne se déplacera jamais sur le côté.
+3. Comportement :
+    * Premier comportement : Les billes forme des tas, en effet elles immobilisent lors d'une colision.
+    * Deuxième comportement : Les billes immobile le resteront et les autres ce déplasseront toujours sur le même vecteurs.
+    * Troisième comportement : Les billes ont un comportement plus aléatoire et naturel.
+    * Bonus : 
+        On a voulu tester d'autre comportement, on a donc essayé, soit d'appliquer le comportement 2 ou 3, de manière aléatoire.
+        
 
-Le comportement avec un meilleur rendu visuel est le dernier, càd si une bille est là où je dois aller.
+    Le comportement avec un meilleur rendu visuel est le quatrième comportement, car il est plus linéraire, mais garde un aspect aléatoire.
+    Cependant, le comportement trois est plus naturel, les billes ont un déplacement arbitraire au siens de l'environement.
 
 ## TP2 - Shark Vs Fish
 
@@ -68,9 +77,5 @@ peuvent se déplacer, se reproduire et manger les poissons dans l'environement.
 ### TP3 - Objectif
 
 ### TP3 - Implémentation
-
-### TP3 - Question
-
-### TP3 - Reponse
 
 ## TP4 NetLog

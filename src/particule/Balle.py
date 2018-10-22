@@ -19,6 +19,15 @@ class Balle(Agent):
 
         self.torus = data[0]
 
+    def swap(self, agent):
+        """
+        Swap la direction de 2 agents
+        """
+
+        agent.pasX, agent.pasY  = -self.pasX, -self.pasY
+        self.color = "red"
+        agent.color = "red"
+
     def swap_pas(self, agent):
         """
         Swap la direction de 2 agents
@@ -52,7 +61,11 @@ class Balle(Agent):
             self.setPosition(newPosX, newPosY)
 
         else: # sinon, échange de valeur
-            self.swap_pas(maybeAgent)
+            r = random.randint(0, 1)
+            if r == 0:
+                self.swap_pas(maybeAgent)
+            else :
+                self.swap(maybeAgent)
 
             newPosX = self.posX + self.pasX # nouveau posX
             newPosY = self.posY + self.pasY # nouveau posY

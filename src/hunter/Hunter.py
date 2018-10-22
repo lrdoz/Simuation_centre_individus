@@ -20,6 +20,11 @@ class Hunter(Agent):
         self.maxfear = 5
 
     def decide(self, env):
+        """
+        Méthode qui permet à un agent de décider de son comportement
+
+        :param env: Environement de l'agent
+        """
         #notion de délai pour les hunters
         self.time +=1
 
@@ -65,7 +70,17 @@ class Hunter(Agent):
             self.delay += 1
 
     def getColor(self):
+        """
+        Retourne la couleur de l'agent
+
+        :return: Couleur de l'agent
+        """
         return "red"
 
     def getType(self):
+        """
+        Retourne le type de l'agent
+
+        :return: Retourne le type de l'agent
+        """
         return 2

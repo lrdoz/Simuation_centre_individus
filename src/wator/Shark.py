@@ -13,6 +13,11 @@ class Shark(WAgent):
 
 
     def decide(self, env):
+        """
+        Méthode qui permet à un agent de décider de son comportement
+
+        :param env: Environement de l'agent
+        """
         self.gestation += 1
         self.age += 1
         self.change = False
@@ -43,4 +48,9 @@ class Shark(WAgent):
 
 
     def getType(self):
+        """
+        Retourne le type de l'agent
+
+        :return: Retourne le type de l'agent
+        """
         return 2

@@ -33,4 +33,9 @@ class Fish(WAgent):
                 return
 
     def getType(self):
+        """
+        Retourne le type de l'agent
+
+        :return: Retourne le type de l'agent
+        """
         return 1

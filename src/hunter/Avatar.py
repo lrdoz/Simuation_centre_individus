@@ -2,6 +2,7 @@ from src.core.Agent import Agent
 from pynput import keyboard
 
 """
+
 """
 class Avatar(Agent):
     def __init__(self, posX, posY, data):
@@ -14,7 +15,9 @@ class Avatar(Agent):
 
     def decide(self, env):
         """
-        Position de l'avatar suivant la dernière saisie clavier du joueur (monde torique)
+        Méthode qui permet à un agent de décider de son comportement
+
+        :param env: Environement de l'agent
         """
         self.time += 1
 
@@ -40,6 +43,9 @@ class Avatar(Agent):
 
     def getColor(self):
         """
+        Retourne la couleur de l'agent
+
+        :return: Couleur de l'agent
         """
         return "yellow"
 
@@ -66,4 +72,9 @@ class Avatar(Agent):
                 key))
 
     def getType(self):
+        """
+        Retourne le type de l'agent
+
+        :return: Retourne le type de l'agent
+        """
         return 0

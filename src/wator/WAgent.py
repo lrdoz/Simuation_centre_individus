@@ -17,12 +17,20 @@ class WAgent(Agent):
 
     def getAge(self):
         """
+        Retour l'age de 'lagent
+
+        :return: Age de l'agent
         """
         return self.age
 
     def updatePosition(self, env, newPos, classAgent, data):
         """
         Bouge l'agent dans une nouvelle case et enfante si besoin
+        
+        :param env: Environement regarder
+        :param newPos: Nouvelle position de l'agent
+        :param classAgent: Class d'initialisation de l'agent
+        :param data: Paramètre à donner à l'agent
         """
         if(self.isAlive()):
             self.change = True

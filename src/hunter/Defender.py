@@ -13,7 +13,9 @@ class Defender(Agent):
 
     def decide(self, env):
         """
-        Position de l'avatar suivant la dernière saisie clavier du joueur (monde torique)
+        Méthode qui permet à un agent de décider de son comportement
+
+        :param env: Environement de l'agent
         """
         self.time += 1
 
@@ -23,8 +25,16 @@ class Defender(Agent):
 
     def getColor(self):
         """
+        Retourne la couleur de l'agent
+
+        :return: Couleur de l'agent
         """
         return "green"
 
     def getType(self):
+        """
+        Retourne le type de l'agent
+
+        :return: Retourne le type de l'agent
+        """
         return 3
