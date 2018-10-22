@@ -13,7 +13,9 @@ class Agent:
         self.posY = posY
         self.life = True
         self.time = 0
-        self.change = False
+        self.form = None
+        self.color = None
+        self.change = True
         self.fearMode = False
 
     def decide(self, env):
@@ -45,7 +47,7 @@ class Agent:
 
         :return: Couleur de l'agent
         """
-        raise NotImplementedError( "Should have implemented this" )
+        return self.color
 
     def getForm(self):
         """
@@ -53,7 +55,7 @@ class Agent:
 
         :return: Forme de l'agent
         """
-        raise NotImplementedError( "Should have implemented this" )
+        return self.form
 
     def dead(self):
         """

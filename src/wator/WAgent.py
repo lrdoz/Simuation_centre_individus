@@ -13,6 +13,8 @@ class WAgent(Agent):
         self.age = 0
         self.gestation = 0
 
+        self.form = "rectangle"
+
     def getAge(self):
         """
         """
@@ -22,7 +24,7 @@ class WAgent(Agent):
         """
         Bouge l'agent dans une nouvelle case et enfante si besoin
         """
-        if(self.life != 0):
+        if(self.isAlive()):
             self.change = True
             env.setAgentPosition(self, newPos[0], newPos[1])
             childPosX, childPosY = self.posX, self.posY
@@ -33,6 +35,3 @@ class WAgent(Agent):
                 self.gestation = 0
                 child = classAgent(childPosX, childPosY, data)
                 env.appendAgent(child, childPosX, childPosY)
-
-    def getColor(self):
-        return self.color

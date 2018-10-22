@@ -19,7 +19,10 @@ class Fish(WAgent):
         self.gestation+=1
         self.age +=1
         self.change = False
-        self.color = "green"
+
+        if (self.age >= 2):
+            self.change = True
+            self.color = "green"
 
         positions = env.moore(self.posX, self.posY) # on regarde les voisins du petit poisson
 

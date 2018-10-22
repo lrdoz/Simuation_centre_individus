@@ -7,8 +7,8 @@ import time
 import json
 
 
-from src.ore.shark import Shark
-from src.core.fish import Fish
+from src.wator.Shark import Shark
+from src.wator.Fish import Fish
 
 from pprint import pprint
 
@@ -20,7 +20,7 @@ class SMA:
     def __init__(self, nFishs, nSharks, fGestation, sGestation, sTime, l, h, size, limite, refresh, time, grid, displayGraph, sIntervale):
 
         #env
-        self.env = Env(l, h, size, displayGraph,sIntervale)
+        self.env = Env(l, h)
 
         #n
         self.nSharks = nSharks
@@ -31,7 +31,7 @@ class SMA:
         self.env.generate(nSharks, Shark,[sGestation,sTime]) # liste des agents
         self.env.generate(nFishs, Fish,[fGestation]) # liste des agents
 
-        self.view = View(l, h, size, self.env.l_agents, grid)
+        self.view = View(l, h, size, self.env.l_agents, "cyan")
 
         #nb de tours
         self.nturn = 0
@@ -45,6 +45,9 @@ class SMA:
 
         self.displayGraph = displayGraph
         self.sIntervale = sIntervale
+
+        if (grid):
+            self.view.create_grid()
 
 
     def turn(self):
@@ -62,7 +65,7 @@ class SMA:
         for i in range(0,self.refresh): # taux de refresh de la page
             # TOUR DE TOUS LES AGENTS
             for ag in self.env.l_agents:
-                if(ag.life != 0):                
+                if(ag.isAlive()):
                     ag.decide(self.env)
 
         self.view.set_agent(self.time, self.env.l_agents, self.turn)
@@ -75,13 +78,13 @@ def parse():
     """
     Parse le fichier JSON de config
     """
-    with open('Properties.json') as data_file:
+    with open('src/wator/Properties.json') as data_file:
         data = json.load(data_file)
         return data
 
 def main():
     data = parse()
-    
+
     # set des valeurs par défault
     nSharks = 10
     nFishs = 10

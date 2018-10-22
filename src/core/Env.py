@@ -12,12 +12,11 @@ Celui-ci peut-être torique ou non
 """
 
 class Env:
-    def __init__(self, l, h, size, vector):
+    def __init__(self, l, h):
         self.l = l
         self.h = h
         self.grid = []
         self.l_agents =[]
-        self.size = size
 
         #Initialisation de la grille
         self.grid = [[(None, -1)] * (self.h) for _ in range(self.l)]
@@ -30,15 +29,15 @@ class Env:
         """
         4 voisins
         """
-        return self.vectorPosition([(0,-1), (1,0), (0,1), (-1,0)])
+        return self.vectorPosition([(0,-1), (1,0), (0,1), (-1,0)], x, y)
 
     def moore(self, x, y):
         """
         8 voisins
         """
-        return self.vectorPosition([(-1,-1), (-1, 1), (1, -1), (1, 1), (0,-1), (1,0), (0,1), (-1,0)])
+        return self.vectorPosition([(-1,-1), (-1, 1), (1, -1), (1, 1), (0,-1), (1,0), (0,1), (-1,0)], x, y)
 
-    def vectorPosition(self, vector):
+    def vectorPosition(self, vector, x, y):
         """
         Permet de récupère toutes les positions du vecteur
 
@@ -124,10 +123,10 @@ class Env:
         :param posX: Position x de l'agent
         :param posY: Position y de l'agent
         """
-        toRm = self.getPosition(posX, posY)[0]
-        if (toRm != None):
+        agent = self.getPosition(posX, posY)[0]
+        if (agent != None):
             self.unsetAgent(posX, posY)
-            toRm.dead()
+            agent.dead()
 
     def removeDeadAgent(self):
         """
@@ -205,7 +204,7 @@ class Env:
         count  = 0 # valeur à mettre sur la case
 
         self.grid[x][y]=(self.grid[x][y][0],0)
-        for vector in self.vector:
+        for vector in [(0,-1), (1,0), (0,1), (-1,0)]:
             xp, yp = (x+vector[0]+self.l) % self.l, (y+vector[1]+self.h) % self.h
             fil.append((xp, yp))
 
@@ -222,28 +221,12 @@ class Env:
                     self.setValue(pos[0], pos[1], count)
 
                     #On définit les voisins
-                    for vector in self.vector:
+                    for vector in [(0,-1), (1,0), (0,1), (-1,0)]:
                         xp, yp = (pos[0]+vector[0]+self.l) % self.l, (pos[1]+vector[1]+self.h) % self.h
                         newFil.append((xp, yp))
 
             fil = newFil
         return
-
-    # def near(self, x, y):
-    #     """
-    #     Regarde les case autour de l'agent et prend une case disponible
-    #     """
-    #     self.cptPos = 0
-    #     res =[]
-    #     #On parcours toutes les case adjacent
-    #     for dx, dy in self.vector:
-    #         xp, yp = (x+dx+self.l) % self.l, (y+dy+self.h) % self.h
-    #         case = self.getPosition(xp, yp)
-    #
-    #         # if (case[1] != -1):
-    #         res += [((xp, yp),case[0], case[1])]
-    #     random.shuffle(res)
-    #     return res
 
     def canMove(self, x, y):
         """

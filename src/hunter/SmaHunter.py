@@ -29,7 +29,7 @@ class SMA:
     def __init__(self, l, h, size, limite, refresh, time, grid, nHunter, speedAvatar, speedHunter, defenderLife, perc):
 
         #env
-        self.env = Env(l, h, size)
+        self.env = Env(l, h)
 
         #n
         #liste des agents

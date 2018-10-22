@@ -15,6 +15,8 @@ class Balle(Agent):
         self.pasX = random.randint(-1,1)
         self.pasY = random.randint(-1,1)
 
+        self.form = "circle"
+
         self.torus = data[0]
 
     def swap_pas(self, agent):
@@ -60,22 +62,6 @@ class Balle(Agent):
             self.change = True
             env.setAgentPosition(self, newPosX, newPosY)
             self.setPosition(newPosX, newPosY)
-
-    def getColor(self):
-        """
-        Retourne la couleur de l'agent
-
-        :return: Couleur de l'agent
-        """
-        return self.color
-
-    def getForm(self):
-        """
-        Retourne la forme de l'agent
-
-        :return: Forme de l'agent
-        """
-        return "circle"
 
     def correctPosition(self, l, h, newPosX, newPosY):
         """

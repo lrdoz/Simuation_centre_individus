@@ -16,7 +16,7 @@ class SMA:
     def __init__(self, n, l, h, t, size, limite, refresh, delay, time, action, trace, grid):
 
         #env
-        self.env = Env(l, h, size)
+        self.env = Env(l, h)
 
         #n
         self.n = n
@@ -69,7 +69,7 @@ class SMA:
         self.scheduling() #quelle méthode pour donner la parole ?
 
         # taux de refresh de la page
-        for i in range(0,self.refresh): 
+        for i in range(0,self.refresh):
             # TOUR DE TOUS LES AGENTS
             for ag in self.order:
                 self.env.l_agents[ag].decide(self.env)

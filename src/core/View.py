@@ -4,7 +4,7 @@ from tkinter import *
 Définit la view de l'environement
 """
 class View :
-    def __init__(self, l, h, size, l_agents):
+    def __init__(self, l, h, size, l_agents, bgcolor="white"):
 
         self.w = l*(size+1)
         self.h = h*(size+1)
@@ -15,7 +15,7 @@ class View :
         self.window.geometry(str(self.w)+"x"+str(self.h))
 
         #canvas
-        self.canvas = Canvas(self.window, height=self.h, width=self.w,background='white')
+        self.canvas = Canvas(self.window, height=self.h, width=self.w,background=bgcolor)
         self.canvas.grid(row=1, column=1, sticky='w')
         self.canvas
         self.grid = 0
@@ -53,7 +53,7 @@ class View :
                                                         (y * self.size)+ y+ self.grid,
                                                         (x * self.size) + self.size + x - self.grid,
                                                         (y * self.size) + self.size + y - self.grid)
-                else:
+                elif not(isInit):
                     if (agent.getForm() == "circle"):
                         agent.circle = self.canvas.create_oval([(x * self.size)+x+ self.grid,
                                                             (y * self.size)+ y+ self.grid,

@@ -27,7 +27,7 @@ class Hunter(Agent):
         if self.delay <= self.time :
             self.time = 0
 
-            nearPos = env.near(self.posX, self.posY) # essaye de chasser la cible
+            nearPos = env.vonNeumman(self.posX, self.posY) # essaye de chasser la cible
             #Si l'agent peut bouger
             if nearPos:
                 #nearPos += [(None, env.getValue(self.posX, self.posY))
