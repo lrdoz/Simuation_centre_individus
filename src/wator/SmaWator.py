@@ -1,14 +1,14 @@
 #coding: utf-8
-from env import Env
-from view import View
+from src.core.Env import Env
+from src.core.View import View
 from tkinter import *
 import random
 import time
 import json
 
 
-from core.shark import Shark
-from core.fish import Fish
+from src.ore.shark import Shark
+from src.core.fish import Fish
 
 from pprint import pprint
 

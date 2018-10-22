@@ -42,3 +42,11 @@ class Balle(Agent):
         :return: Couleur de l'agent
         """
         return self.color
+
+    def getForm(self):
+        """
+        Retourne la forme de l'agent
+
+        :return: Forme de l'agent
+        """
+        return "circle"

@@ -1,4 +1,4 @@
-from core.Agent import Agent
+from src.core.Agent import Agent
 from pynput import keyboard
 
 """

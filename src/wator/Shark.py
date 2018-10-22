@@ -1,4 +1,4 @@
-from core.agent import Agent
+from src.core.agent import Agent
 
 class Shark(Agent):
     def __init__(self, posX, posY, data):

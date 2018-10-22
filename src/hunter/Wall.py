@@ -1,4 +1,4 @@
-from core.Agent import Agent
+from src.core.Agent import Agent
 
 class Wall(Agent):
     def __init__(self, posX, posY, data=[]):

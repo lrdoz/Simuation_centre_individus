@@ -1,5 +1,5 @@
 import sys
-from core.Agent import Agent
+from src.core.Agent import Agent
 from operator import itemgetter
 from pynput import keyboard
 

@@ -53,7 +53,7 @@ class View :
                                                         (y * self.size) + self.size + y - self.grid)
                 else:
                     color = agent.getColor()
-                    if (agent.form == "circle"):
+                    if (agent.getForm() == "circle"):
                         agent.circle = self.canvas.create_oval([(x * self.size)+x+ self.grid,
                                                             (y * self.size)+ y+ self.grid,
                                                             (x * self.size) + self.size + x - self.grid,
