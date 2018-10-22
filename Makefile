@@ -1,7 +1,5 @@
 
 
-
-
 all:
 
 
@@ -10,6 +8,6 @@ particule:
 
 wator:
 	python3 -m src.wator.SmaWator
-	
+
 hunter:
 	python3 -m src.hunter.SmaHunter

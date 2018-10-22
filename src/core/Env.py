@@ -12,7 +12,7 @@ Celui-ci peut-être torique ou non
 """
 
 class Env:
-    def __init__(self, l, h, torus, size):
+    def __init__(self, l, h, size):
         self.l = l
         self.h = h
         self.grid = []
@@ -219,6 +219,7 @@ class Env:
 
     def canMove(self, x, y):
         """
+
         """
         return (self.getPosition(x,y)[0] == None)
 
@@ -228,6 +229,7 @@ class Env:
         """
         self.setAgentPosition(agent, posX, posY)
         self.l_agents.append(agent)
+
 
     #########
     # DEBUG #

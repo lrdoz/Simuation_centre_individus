@@ -16,13 +16,13 @@ class SMA:
     def __init__(self, n, l, h, t, size, limite, refresh, delay, time, action, trace, grid):
 
         #env
-        self.env = Env(l, h, t, size)
+        self.env = Env(l, h, size)
 
         #n
         self.n = n
 
         #liste des agents
-        self.env.generate(n, Balle) # liste des agents
+        self.env.generate(n, Balle, [t]) # liste des agents
 
         self.view = View(l, h, size, self.env.l_agents)
 
