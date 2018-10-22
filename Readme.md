@@ -36,7 +36,7 @@ L'intéraction entre agents, est fait lorsque deux agents se collisione, dans ce
     * Troisième comportement : Les billes ont un comportement plus aléatoire et naturel.
     * Bonus : 
         On a voulu tester d'autre comportement, on a donc essayé, soit d'appliquer le comportement 2 ou 3, de manière aléatoire.
-        
+        Les billes ont un comportement linéaire, mais garde un aspect aléatoire.
 
     Le comportement avec un meilleur rendu visuel est le quatrième comportement, car il est plus linéraire, mais garde un aspect aléatoire.
     Cependant, le comportement trois est plus naturel, les billes ont un déplacement arbitraire au siens de l'environement.
