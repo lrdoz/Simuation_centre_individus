@@ -5,7 +5,7 @@ from pynput import keyboard
 
 
 """
-
+Implémentation d'un agent ayant le comportement d'un Chasseur
 """
 class Hunter(Agent):
     def __init__(self, posX, posY, data):
@@ -33,9 +33,13 @@ class Hunter(Agent):
             self.time = 0
 
             nearPos = env.vonNeumman(self.posX, self.posY) # essaye de chasser la cible
+
+            #Supprime tous les mur
+            nearPos = [ agent for agent in nearPos if agent[2] != -1]
+
             #Si l'agent peut bouger
             if nearPos:
-                #nearPos += [(None, env.getValue(self.posX, self.posY))
+
                 if not self.fearMode:
                     self.nfear = 0
                     newPos = min(nearPos, key=itemgetter(2))

@@ -2,7 +2,7 @@ from src.core.Agent import Agent
 from pynput import keyboard
 
 """
-
+Implémentation d'un agent pouvant être manipuler par un individue
 """
 class Avatar(Agent):
     def __init__(self, posX, posY, data):

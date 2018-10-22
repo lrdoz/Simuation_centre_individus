@@ -1,5 +1,8 @@
 from src.core.Agent import Agent
 
+"""
+Implémentation d'un agent ayant le comportement d'un mur
+"""
 class Wall(Agent):
     def __init__(self, posX, posY, data=[]):
         # position initiale de la particule

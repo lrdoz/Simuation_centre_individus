@@ -1,5 +1,8 @@
 from src.wator.WAgent import WAgent
 
+"""
+Implémentation d'un agent ayant le comportement d'un poisson
+"""
 class Fish(WAgent):
     def __init__(self, posX, posY, data):
         # position initiale de la particule

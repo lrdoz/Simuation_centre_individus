@@ -1,6 +1,7 @@
 from src.core.Agent import Agent
 
 """
+Implémentation d'un agent ayant le comportement d'un defender
 """
 class Defender(Agent):
     def __init__(self, posX, posY, data):

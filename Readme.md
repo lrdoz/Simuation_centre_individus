@@ -1,5 +1,15 @@
 # Rendu TP Simulation centre individue
 
+## Bilan
+
+### Résumé
+
+Dans ce repertoire vous trouverez nos trois implémentation des TP1 2 et 3
+
+### Implémentation
+
+### 
+
 ## TP1 - Particule
 
 ### TP1 - Objectif
@@ -9,6 +19,11 @@ Les agents sont des billes, possédant un vecteur de déplacement, et ce déplac
 L'intéraction entre agents, est fait lorsque deux agents se collisione, dans ces cas la un comportement .  
 
 ### TP1 - Implémentation
+
+#### TP1 - Execution + Configuration
+
+1. Pour l'éxécution il simplement nécessaire de faire :
+    ```make particule```
 
 ### TP1 - Question
 
@@ -51,6 +66,11 @@ peuvent se déplacer, se reproduire et manger les poissons dans l'environement.
 
 ### TP2 - Implémentation
 
+#### TP2 - Execution + Configuration
+
+1. Pour l'éxécution il simplement nécessaire de faire :
+    ```make wator```
+
 ### TP2 - Question
 
 1. Est-il préférable d'initialiser les agents avec les mêmes valeurs pour les 3 différents compteurs
@@ -70,12 +90,24 @@ peuvent se déplacer, se reproduire et manger les poissons dans l'environement.
     vont disparaitre, ou les poisson.
     Il est plus préférable d'adapter les valeur au environement.
 
-2. None
+2. Comportement :
+    * Premier comportement : Dans ce type de comportement les poissons forment des attroupement, qui grandit et rapetit, sans jamais disparaitre
+    * Deuxième comportement : 
+    * Troisième comportement : On constate la formation de nombreux, vague de requin poursuivant un amas de poisson jusqu'a son extermination.
 
 ## TP3 - Pack Man
 
 ### TP3 - Objectif
 
+L'objectif du tp est de mettre un system temps réel, avec une intéraction humaine sur le l'environement.
+Pour se faire, nous créer un agent pouvant être maitrisé par un individue, et des agents trackant l'humain.
+L'individue, peut ce déplacer dans l'environement, manger certain agent, et mourir.
+
 ### TP3 - Implémentation
+
+#### TP3 - Execution + Configuration
+
+1. Pour l'éxécution il simplement nécessaire de faire :
+    ```make hunter```
 
 ## TP4 NetLog
