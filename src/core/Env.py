@@ -26,13 +26,13 @@ class Env:
     #   Opération primitive sur l'environement  #
     #############################################
 
-    def vonNeumman(self):
+    def vonNeumman(self, x, y):
         """
         4 voisins
         """
         return self.vectorPosition([(0,-1), (1,0), (0,1), (-1,0)])
 
-    def moore(self):
+    def moore(self, x, y):
         """
         8 voisins
         """
@@ -229,21 +229,21 @@ class Env:
             fil = newFil
         return
 
-    def near(self, x, y):
-        """
-        Regarde les case autour de l'agent et prend une case disponible
-        """
-        self.cptPos = 0
-        res =[]
-        #On parcours toutes les case adjacent
-        for dx, dy in self.vector:
-            xp, yp = (x+dx+self.l) % self.l, (y+dy+self.h) % self.h
-            case = self.getPosition(xp, yp)
-
-            # if (case[1] != -1):
-            res += [((xp, yp),case[0], case[1])]
-        random.shuffle(res)
-        return res
+    # def near(self, x, y):
+    #     """
+    #     Regarde les case autour de l'agent et prend une case disponible
+    #     """
+    #     self.cptPos = 0
+    #     res =[]
+    #     #On parcours toutes les case adjacent
+    #     for dx, dy in self.vector:
+    #         xp, yp = (x+dx+self.l) % self.l, (y+dy+self.h) % self.h
+    #         case = self.getPosition(xp, yp)
+    #
+    #         # if (case[1] != -1):
+    #         res += [((xp, yp),case[0], case[1])]
+    #     random.shuffle(res)
+    #     return res
 
     def canMove(self, x, y):
         """

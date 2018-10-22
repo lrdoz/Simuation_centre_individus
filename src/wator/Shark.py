@@ -9,28 +9,32 @@ class Shark(WAgent):
         self.gestationDay = data[0]
         self.deadTime =data[1]
         self.hungry = 0
+        self.color = "pink"
 
 
     def decide(self, env):
         self.gestation += 1
         self.age += 1
-        newPos = env.near(self.posX, self.posY)
+        self.change = False
+        self.color = "red"
 
-        #Mange poisson
-        if(newPos !=None and newPos[0]):
-            # print("newPos", newPos[1])
-            self.hungry = 0
-            env.dead(newPos[1][0],newPos[1][1])
-        else:
-            self.hungry +=1
-            if(self.hungry>=self.deadTime):
-                env.dead(self.posX, self.posY)
+        positions = env.moore(self.posX, self.posY)
+        # newPos = env.near(self.posX, self.posY)
+
+        for pos in positions :
+            if (pos[1] == None): # si le requin peut bouger
+                self.updatePosition(env, pos[0], Shark, [self.gestationDay, self.deadTime])
                 return
-        if (newPos):
-            self.updatePosition(env, newPos[1], Shark, [self.gestationDay, self.deadTime])
-        else :
-            self.change = False
+            elif(pos[1].getType() == 1): # si le requin peut monger
+                self.hungry = 0
+                env.dead(pos[0][0], pos[0][1])
+                self.updatePosition(env, pos[0], Shark, [self.gestationDay, self.deadTime])
+                return
 
+        self.hungry +=1 # sinon il a faim
+        if(self.hungry>=self.deadTime): # et il meurt
+            env.dead(self.posX, self.posY)
+            return
 
     def getType(self):
         return 2

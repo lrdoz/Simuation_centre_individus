@@ -7,6 +7,7 @@ class Fish(WAgent):
 
         # Gestation
         self.gestationDay = data[0]
+        self.color = "yellow"
 
 
     def decide(self, env):
@@ -17,19 +18,16 @@ class Fish(WAgent):
         """
         self.gestation+=1
         self.age +=1
+        self.change = False
+        self.color = "green"
 
-        positions = env.moore()
+        positions = env.moore(self.posX, self.posY) # on regarde les voisins du petit poisson
 
         for case in positions:
             if case[1] == None:
+
                 self.updatePosition(env, case[0], Fish, [self.gestationDay])
                 return
 
     def getType(self):
         return 1
-
-    def getColorBorn(self):
-        return "yellow"
-
-    def getColor(self):
-        return "green"

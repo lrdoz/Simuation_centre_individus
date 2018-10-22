@@ -9,14 +9,14 @@ class Graph:
 
         self.shark, = self.ax.plot([],[],label="shark")
         self.fish, = self.ax.plot([],[],label="fish")
-        
+
         self.figure2, self.ax2 = plt.subplots()
         self.proportion, = self.ax2.plot([],[],label="proportion")
 
         self.ax.set_autoscaley_on(True)
         self.ax.set(xlabel='time (s)', ylabel='agents (u)',
             title="Nombre d'agent en fonction du temps qui passe")
-        
+
     def update(self, xtime, yshark, yfish):
         """
         """
@@ -49,4 +49,3 @@ class Graph:
 
         self.figure2.canvas.draw()
         self.figure2.canvas.flush_events()
-        
