@@ -10,29 +10,34 @@
 
 1. Combien d'agents peut-on raisonnablement faire tourner simultanément? (fréquence d'un tour par population)
 
-2. Tracer quelques courbes montrant l'évolution du nombre de collisions par tick, por le même nombre de billes 
+2. Tracer quelques courbes montrant l'évolution du nombre de collisions par tick, por le même nombre de billes
     mais selon les tailles d'environement.
 
 3. Variation sur le comportement:
-    *Si une bille est là où je dois aller, je ne fais rien
-    *Si une bille est la où je dois aller, j'inverse ma direction
-    *Si une bille est la où je dois aller, j'inverse ma direction avec l'autre
+    * Si une bille est là où je dois aller, je ne fais rien
+    * Si une bille est la où je dois aller, j'inverse ma direction
+    * Si une bille est la où je dois aller, j'inverse ma direction avec l'autre
     Que se passe t-il dans ces diffénts cas? Quel est le comportement qui fournit le meilleur rendu?
+
 
 ### TP1 - Reponse
 
-1. None
+1. Raisonnablement : ~ 80.000 agents, avec un taux de rafraichissement de 2 images par seconde.
 
-2. None
+2. prout
 
-3. None
+3.
+    * Premier comportement : forme des tas de particules
+    * Deuxième comportement : les particules inertes le resteront et les boules iront toujours dans un sens ou dans son sens inverse, càd si une balle se déplace en diagonal, alors, elle ne se déplacera jamais sur le côté.
+
+Le comportement avec un meilleur rendu visuel est le dernier, càd si une bille est là où je dois aller.
 
 ## TP2 - Shark Vs Fish
 
 ### TP2 - Objectif
 
 L'objectif du Tp est de similué un environement proi prédateur, pour ce faire nous avons 2 agents.
-Les poissons, ils pouvent se déplacer et se reproduire dans l'environement et les requins, qui 
+Les poissons, ils pouvent se déplacer et se reproduire dans l'environement et les requins, qui
 peuvent se déplacer, se reproduire et manger les poissons dans l'environement.
 
 ### TP2 - Implémentation
@@ -42,7 +47,7 @@ peuvent se déplacer, se reproduire et manger les poissons dans l'environement.
 1. Est-il préférable d'initialiser les agents avec les mêmes valeurs pour les 3 différents compteurs
     ou initialiser ces compteurs aléatoirement?
 
-2. Testez différents variantes comportementales. Quels sont les comportements qui donnent les 
+2. Testez différents variantes comportementales. Quels sont les comportements qui donnent les
     meilleures dynamique?
     * Une action à chaque tick : soit manger, soit se reproduire, soit bouger
     * Se reproduire en bougeant
@@ -52,7 +57,7 @@ peuvent se déplacer, se reproduire et manger les poissons dans l'environement.
 
 ### TP2 - Reponse
 
-1. Il n'est pas préférable d'initialisé les même valeurs, en effet selon la taille de la grille et la disposition, les requins 
+1. Il n'est pas préférable d'initialisé les même valeurs, en effet selon la taille de la grille et la disposition, les requins
     vont disparaitre, ou les poisson.
     Il est plus préférable d'adapter les valeur au environement.
 
