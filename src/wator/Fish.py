@@ -1,6 +1,6 @@
-from src.core.agent import Agent
+from src.wator.WAgent import WAgent
 
-class Fish(Agent):
+class Fish(WAgent):
     def __init__(self, posX, posY, data):
         # position initiale de la particule
         super(Fish, self).__init__(posX, posY)
@@ -10,20 +10,26 @@ class Fish(Agent):
 
 
     def decide(self, env):
+        """
+        Méthode qui permet à un agent de décider de son comportement
+
+        :param env: Environement de l'agent
+        """
         self.gestation+=1
         self.age +=1
 
-        newPos = env.canMove(self.posX, self.posY)
+        positions = env.moore()
 
-        if (newPos):
-            self.updatePosition(env, newPos, Fish, [self.gestationDay])
-        return
+        for case in positions:
+            if case[1] == None:
+                self.updatePosition(env, case[0], Fish, [self.gestationDay])
+                return
 
     def getType(self):
         return 1
 
     def getColorBorn(self):
         return "yellow"
-    
+
     def getColor(self):
         return "green"

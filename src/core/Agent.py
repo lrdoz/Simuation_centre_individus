@@ -13,6 +13,7 @@ class Agent:
         self.posY = posY
         self.life = True
         self.time = 0
+        self.change = False
         self.fearMode = False
 
     def decide(self, env):

@@ -1,6 +1,6 @@
-from src.core.agent import Agent
+from src.wator.WAgent import WAgent
 
-class Shark(Agent):
+class Shark(WAgent):
     def __init__(self, posX, posY, data):
         # position initiale de la particule
         super(Shark, self).__init__(posX, posY)
@@ -14,7 +14,7 @@ class Shark(Agent):
     def decide(self, env):
         self.gestation += 1
         self.age += 1
-        newPos = env.hasFish(self.posX, self.posY)
+        newPos = env.near(self.posX, self.posY)
 
         #Mange poisson
         if(newPos !=None and newPos[0]):
@@ -37,6 +37,6 @@ class Shark(Agent):
 
     def getColorBorn(self):
         return "pink"
-    
+
     def getColor(self):
         return "red"

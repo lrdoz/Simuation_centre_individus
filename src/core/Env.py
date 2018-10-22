@@ -12,14 +12,12 @@ Celui-ci peut-être torique ou non
 """
 
 class Env:
-    def __init__(self, l, h, size):
+    def __init__(self, l, h, size, vector):
         self.l = l
         self.h = h
         self.grid = []
         self.l_agents =[]
         self.size = size
-
-        self.vector = [(0,-1), (1,0), (0,1), (-1,0)]
 
         #Initialisation de la grille
         self.grid = [[(None, -1)] * (self.h) for _ in range(self.l)]
@@ -27,6 +25,36 @@ class Env:
     #############################################
     #   Opération primitive sur l'environement  #
     #############################################
+
+    def vonNeumman(self):
+        """
+        4 voisins
+        """
+        return self.vectorPosition([(0,-1), (1,0), (0,1), (-1,0)])
+
+    def moore(self):
+        """
+        8 voisins
+        """
+        return self.vectorPosition([(-1,-1), (-1, 1), (1, -1), (1, 1), (0,-1), (1,0), (0,1), (-1,0)])
+
+    def vectorPosition(self, vector):
+        """
+        Permet de récupère toutes les positions du vecteur
+
+        :param vector: list des vecteurs regarder
+        :return: list des case sur la grille
+        """
+        res =[]
+        #On parcours toutes les case adjacent
+        for dx, dy in vector:
+            xp, yp = (x+dx+self.l) % self.l, (y+dy+self.h) % self.h
+            case = self.getPosition(xp, yp)
+
+            res += [((xp, yp),case[0], case[1])]
+        random.shuffle(res)
+
+        return res
 
     def getPosition(self, posX, posY):
         """
@@ -212,8 +240,8 @@ class Env:
             xp, yp = (x+dx+self.l) % self.l, (y+dy+self.h) % self.h
             case = self.getPosition(xp, yp)
 
-            if (case[1] != -1):
-                res += [((xp, yp),case[0], case[1])]
+            # if (case[1] != -1):
+            res += [((xp, yp),case[0], case[1])]
         random.shuffle(res)
         return res
 

@@ -12,8 +12,6 @@ class Balle(Agent):
 
         self.color = "grey"
 
-        self.change = 0
-
         self.pasX = random.randint(-1,1)
         self.pasY = random.randint(-1,1)
 
@@ -59,31 +57,9 @@ class Balle(Agent):
 
             newPosX, newPosY = self.correctPosition(env.l, env.h, newPosX, newPosY)
 
-            # maybeAgent = env.getPositionAgent(newPosX, newPosY)
-
-            # if maybeAgent == None:
             self.change = True
             env.setAgentPosition(self, newPosX, newPosY)
             self.setPosition(newPosX, newPosY)
-            #
-            #
-            # newPos = self.correctPosition(env.l, env.h, newPosX, newPosY)
-            # if (self.t):
-            #     newPosX = (newPosX+self.l)%self.l
-            #     newPosY = (newPosY+self.h)%self.h
-            # else :
-            #     if (newPosX < 0): # on replace correctement la boule si besoin
-            #         newPosX += 2
-            #         agent.pasX *= -1
-            #     if ((self.l - newPosX) <= 1):
-            #         newPosX -= 2
-            #         agent.pasX *= -1
-            #     if (newPosY < 0):
-            #         newPosY += 2
-            #         agent.pasY *= -1
-            #     if ((self.h - newPosY) <= 1):
-            #         newPosY -= 2
-            #         agent.pasY *= -1
 
     def getColor(self):
         """
