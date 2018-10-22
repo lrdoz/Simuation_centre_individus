@@ -9,7 +9,7 @@ import json
 
 from src.wator.Shark import Shark
 from src.wator.Fish import Fish
-from src.wator.graph import Graph
+# from src.wator.graph import Graph
 
 
 from pprint import pprint
@@ -75,19 +75,20 @@ class SMA:
                     ag.decide(self.env)
 
         self.view.set_agent(self.time, self.env.l_agents, self.turn)
+    # def updateGraph(self):
+    #     """
+    #     Met à jour les graphes
+    #     """
+    
+    # for agent in self.env.l_agents:
+        
+    #     self.graph.update(self.times, self.nbShark, self.nbFish)
 
     def run(self):
         self.view.set_agent(self.time, self.env.l_agents, self.turn)
         self.view.mainloop()
 
-    def updateGraph(self):
-    """
-    Met à jour les graphes
-    """
-    
-    for agent in self.env.l_agents:
-        
-    self.graph.update(self.times, self.nbShark, self.nbFish)
+
 
 def parse():
     """
