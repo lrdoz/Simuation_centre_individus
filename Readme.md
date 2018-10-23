@@ -2,10 +2,13 @@
 
 ## Bilan
 
+C'était bien.
+
 ### Résumé
 
 Dans ce repertoire vous trouverez nos trois implémentations des TP1, 2 et 3.
 Chaque implémentation de core se trouve dans un repertoire spécifique du tp.
+Chaque package a son propre fichier SMA et Properties.json.
 < MOCHE
 Pour permettre une parfaite hiérarchie objet, nous avons du délaisser l'aspect performance de notre implémentation.
 En effet, de nombreux calcul ont été laissé au agent, permettant leur indépendance, cependant si l'environement sans été
@@ -17,13 +20,13 @@ Hormis ce léger problème l'enssemble des tps sont fonctionnels et implémentes
 
 ### Implémentation
 
-###
+Pour chaque TP, on a un diagramme UML qui décrit son architecture (voir partie implémentation de chaque TP).
 
 ## TP1 - Particule
 
 ### TP1 - Objectif
 
-L'objectif du tp est de similé un environnement contenant des agents se déplaçant et interagissant avec d'autres agents.
+L'objectif du tp est de simulé un environnement contenant des agents se déplaçant et interagissant avec d'autres agents.
 Les agents sont des billes, possédant un vecteur de déplacement, et se déplaçant dans leur environnement.
 L'environnement peut être torique ou non torique, càd que les boules peuvent rebondir (ou non) contre les murs.
 Lorsque deux agents se collisionnent, différents comportements peuvent être là aussi adoptés (voir question 3).
@@ -91,7 +94,7 @@ Le fichier Properties.json gère les différentes options pour lancer la simulat
 
 ### TP2 - Objectif
 
-L'objectif du Tp est de similué un environement proi prédateur, pour ce faire nous avons 2 agents.
+L'objectif du Tp est de simulé un environement proi prédateur, pour ce faire nous avons 2 agents.
 Les poissons, ils pouvent se déplacer et se reproduire dans l'environement et les requins, qui
 peuvent se déplacer, se reproduire et manger les poissons dans l'environement.
 
@@ -114,7 +117,7 @@ peuvent se déplacer, se reproduire et manger les poissons dans l'environement.
     ou initialiser ces compteurs aléatoirement?
 
 2. Testez différents variantes comportementales. Quels sont les comportements qui donnent les
-    meilleures dynamique?
+    meilleures dynamiques?
     * Une action à chaque tick : soit manger, soit se reproduire, soit bouger
     * Se reproduire en bougeant
     * Se reproduire en mangeant
@@ -123,13 +126,13 @@ peuvent se déplacer, se reproduire et manger les poissons dans l'environement.
 
 ### TP2 - Reponse
 
-1. Il n'est pas préférable d'initialisé les même valeurs, en effet selon la taille de la grille et la disposition, les requins
+1. Il n'est pas préférable d'initialiser les mêmes valeurs, en effet selon la taille de la grille et la disposition, les requins
     vont disparaitre, ou les poisson.
     Il est plus préférable d'adapter les valeur au environement.
 
 2. Comportement :
-    * Premier comportement : Dans ce type de comportement les poissons forment des attroupement, qui grandit et rapetit, sans jamais disparaitre
-    * Deuxième comportement :
+    * Premier comportement : Dans ce type de comportement les poissons forment des attroupements, qui grandissent et se réduisent, sans jamais disparaître.
+    * Deuxième comportement : Comportement par défaut dans tous les cas car plus facile à gérer pour les naissances.
     * Troisième comportement : On constate la formation de nombreux, vague de requin poursuivant un amas de poisson jusqu'a son extermination.
 
 ## TP3 - Pack Man

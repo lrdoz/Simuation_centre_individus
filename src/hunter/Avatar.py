@@ -35,20 +35,13 @@ class Avatar(Agent):
                 self.posX, self.posY = xp, yp
                 env.updateValues(xp, yp)
 
-            elif case.getType() == 3:
+            elif (case.getType() == 3 or case.getType() == 4):
                 env.kill(xp, yp)
 
                 env.setAgentPosition(self, xp, yp)
                 self.posX, self.posY = xp, yp
                 env.updateValues(xp, yp)
 
-    def getColor(self):
-        """
-        Retourne la couleur de l'agent
-
-        :return: Couleur de l'agent
-        """
-        return "yellow"
 
     def on_press(self, key):
 

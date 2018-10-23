@@ -1,6 +1,6 @@
 {
-  "gridSizeX":"50",
-  "gridSizeY":"50",
+  "gridSizeX":"10",
+  "gridSizeY":"10",
   "boxSize":"10",
   "scheduling":"2",
   "nbTicks":"",
@@ -8,9 +8,9 @@
   "seed":"",
   "refresh":"1",
   "grid":"",
-  "sHunter":"50",
+  "sHunter":"1",
   "SpeedAvatar":"3",
   "SpeedHunter":"5",
   "DefenderLife": "100",
-  "perc": "100"
+  "perc": "0"
 }

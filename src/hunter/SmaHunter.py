@@ -62,6 +62,9 @@ class SMA:
 
 
     def generate_maze (self):
+        """
+        Permet de construire le labyrinthe
+        """
         l_grille = [[False] * (self.env.h) for _ in range(self.env.l)]
         x = random.randint(0, self.env.l-1)
         y = random.randint(0, self.env.h-1)
