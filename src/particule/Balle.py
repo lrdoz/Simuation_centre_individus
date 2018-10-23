@@ -105,4 +105,4 @@ class Balle(Agent):
         return newPosX, newPosY
 
     def toPrint(self):
-        print(str(self.posX)+","+str(self.posY)+","+str(self.pasX)+","+str(self.pasY)+","+str(self.rebond))
+        return (str(self.posX)+","+str(self.posY)+","+str(self.pasX)+","+str(self.pasY)+","+str(self.rebond))
