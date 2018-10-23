@@ -45,6 +45,10 @@ Le fichier Properties.json gère les différentes options pour lancer la simulat
 
 ### TP1 - Implémentation
 
+![](/image/particule.png)
+
+![](/image/particule_package.png)
+
 #### TP1 - Execution + Configuration
 
 1. Pour l'éxécution il simplement nécessaire de faire :
@@ -91,6 +95,10 @@ peuvent se déplacer, se reproduire et manger les poissons dans l'environement.
 
 ### TP2 - Implémentation
 
+![](/image/wator.png)
+
+![](/image/wator_package.png)
+
 #### TP2 - Execution + Configuration
 
 1. Pour l'éxécution il simplement nécessaire de faire :
@@ -129,6 +137,10 @@ Pour se faire, nous créer un agent pouvant être maitrisé par un individue, et
 L'individue, peut ce déplacer dans l'environement, manger certain agent, et mourir.
 
 ### TP3 - Implémentation
+
+![](/image/hunter.png)
+
+![](/image/hunter_package.png)
 
 #### TP3 - Execution + Configuration
 
