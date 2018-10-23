@@ -5,26 +5,43 @@
 ### Résumé
 
 Dans ce repertoire vous trouverez nos trois implémentation des TP1, 2 et 3.
-Chaque implémentation de core ce trouve dans un repertoire spécifique du tp.
-Pour permettre une parfait hiérarchie objet, nous avons du délaisser l'aspect performance de notre implémentation.
+Chaque implémentation de core se trouve dans un repertoire spécifique du tp.
+< MOCHE
+Pour permettre une parfaite hiérarchie objet, nous avons du délaisser l'aspect performance de notre implémentation.
 En effet, de nombreux calcul ont été laissé au agent, permettant leur indépendance, cependant si l'environement sans été
-occupé, le nombre d'accept à la grille aurait été fortement réduit.
+occupé, le nombre d'accept à la grille aurait été fortement réduit
 
 Exemple: Le TP1 il était possible de faire tourner 120 000 agent sur la première version, suite au réfacto ont peut en faire tourner que 80 000.
 
-Hormis ce léger problème l'enssemble des tps sont fonctionnels et implémentes toutes les fonctionnalités. 
+Hormis ce léger problème l'enssemble des tps sont fonctionnels et implémentes toutes les fonctionnalités.>
 
 ### Implémentation
 
-### 
+###
 
 ## TP1 - Particule
 
 ### TP1 - Objectif
 
-L'objectif du tp est de similué un environement contenant des agents ce déplacent et intéragissent avec d'autre agent.
-Les agents sont des billes, possédant un vecteur de déplacement, et ce déplacent au siens de l'environement.
-L'intéraction entre agents, est fait lorsque deux agents se collisione, dans ces cas la un comportement .  
+L'objectif du tp est de similué un environnement contenant des agents se déplaçant et interagissant avec d'autres agents.
+Les agents sont des billes, possédant un vecteur de déplacement, et se déplaçant dans leur environnement.
+L'environnement peut être torique ou non torique, càd que les boules peuvent rebondir (ou non) contre les murs.
+Lorsque deux agents se collisionnent, différents comportements peuvent être là aussi adoptés (voir question 3).
+
+Le fichier Properties.json gère les différentes options pour lancer la simulation :
+ * "torus": si le monde est torique ou non
+ * "gridSizeX": taille de la grille en abscisse
+ * "gridSizeY": taille de la grille en ordonnée
+ * "boxSize": taille de la box
+ * "delay":
+ * "scheduling": ordonnancement pour donner la parole aux particules (1 : ordonné, 2: aléatoire juste, 3: aléatoire injuste)
+ * "nbTicks": nombre de tours de parole
+ * "time": vitesse des particules
+ * "trace": trace des tours dans le terminal
+ * "seed": seed pour le random
+ * "refresh": taux de rafraichissement de la vue
+ * "grid": afficher la grille ou non
+ * "nbParticles": nombre de particules
 
 ### TP1 - Implémentation
 
@@ -57,7 +74,7 @@ L'intéraction entre agents, est fait lorsque deux agents se collisione, dans ce
     * Premier comportement : Les billes forme des tas, en effet elles immobilisent lors d'une colision.
     * Deuxième comportement : Les billes immobile le resteront et les autres ce déplasseront toujours sur le même vecteurs.
     * Troisième comportement : Les billes ont un comportement plus aléatoire et naturel.
-    * Bonus : 
+    * Bonus :
         On a voulu tester d'autre comportement, on a donc essayé, soit d'appliquer le comportement 2 ou 3, de manière aléatoire.
         Les billes ont un comportement linéaire, mais garde un aspect aléatoire.
 
@@ -100,7 +117,7 @@ peuvent se déplacer, se reproduire et manger les poissons dans l'environement.
 
 2. Comportement :
     * Premier comportement : Dans ce type de comportement les poissons forment des attroupement, qui grandit et rapetit, sans jamais disparaitre
-    * Deuxième comportement : 
+    * Deuxième comportement :
     * Troisième comportement : On constate la formation de nombreux, vague de requin poursuivant un amas de poisson jusqu'a son extermination.
 
 ## TP3 - Pack Man
