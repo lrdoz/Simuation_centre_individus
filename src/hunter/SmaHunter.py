@@ -142,7 +142,7 @@ class SMA:
                     self.nbDefender +=1
                     for agent in self.env.l_agents:
                         agent.fearMode = True
-                if agent.getType() == 0 or agent.getType() ==4:
+                elif agent.getType() == 0 or agent.getType() ==4:
                     self.view.window.destroy()
                     self.keyL.stop()
                     sys.exit(0)

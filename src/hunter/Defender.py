@@ -11,6 +11,7 @@ class Defender(Agent):
         self.form = "circle"
         self.deadLine = data[0]
         self.natural = False
+        self.color = "green"
 
     def decide(self, env):
         """
@@ -23,14 +24,6 @@ class Defender(Agent):
         if self.deadLine <= self.time:
             self.natural = True
             self.dead()
-
-    def getColor(self):
-        """
-        Retourne la couleur de l'agent
-
-        :return: Couleur de l'agent
-        """
-        return "green"
 
     def getType(self):
         """
