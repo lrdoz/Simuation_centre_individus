@@ -35,6 +35,7 @@ class Shark(WAgent):
             return
 
         positions = env.moore(self.posX, self.posY)
+        poslibres = []
         # newPos = env.near(self.posX, self.posY)
 
         for pos in positions :
@@ -43,11 +44,11 @@ class Shark(WAgent):
                 env.kill(pos[0][0], pos[0][1])
                 self.updatePosition(env, pos[0], Shark, [self.gestationDay, self.deadTime])
                 return
+            if (pos[1] == None):
+                poslibres.append(pos)
 
-        for pos in positions :
-            if (pos[1] == None): # si le requin peut bouger
-                self.updatePosition(env, pos[0], Shark, [self.gestationDay, self.deadTime])
-                return
+        if poslibres :
+            self.updatePosition(env, poslibres[0][0], Shark, [self.gestationDay, self.deadTime])
 
 
     def getType(self):

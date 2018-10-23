@@ -4,7 +4,7 @@
 
 ### Résumé
 
-Dans ce repertoire vous trouverez nos trois implémentation des TP1, 2 et 3.
+Dans ce repertoire vous trouverez nos trois implémentations des TP1, 2 et 3.
 Chaque implémentation de core se trouve dans un repertoire spécifique du tp.
 < MOCHE
 Pour permettre une parfaite hiérarchie objet, nous avons du délaisser l'aspect performance de notre implémentation.
@@ -23,7 +23,7 @@ Hormis ce léger problème l'enssemble des tps sont fonctionnels et implémentes
 
 ### TP1 - Objectif
 
-L'objectif du tp est de similué un environnement contenant des agents se déplaçant et interagissant avec d'autres agents.
+L'objectif du tp est de similé un environnement contenant des agents se déplaçant et interagissant avec d'autres agents.
 Les agents sont des billes, possédant un vecteur de déplacement, et se déplaçant dans leur environnement.
 L'environnement peut être torique ou non torique, càd que les boules peuvent rebondir (ou non) contre les murs.
 Lorsque deux agents se collisionnent, différents comportements peuvent être là aussi adoptés (voir question 3).
@@ -51,8 +51,10 @@ Le fichier Properties.json gère les différentes options pour lancer la simulat
 
 #### TP1 - Execution + Configuration
 
-1. Pour l'éxécution il simplement nécessaire de faire :
-    ```make particule```
+1. Pour l'exécution, faire :
+    ```
+    make particule
+    ```
 
 ### TP1 - Question
 
@@ -101,8 +103,10 @@ peuvent se déplacer, se reproduire et manger les poissons dans l'environement.
 
 #### TP2 - Execution + Configuration
 
-1. Pour l'éxécution il simplement nécessaire de faire :
-    ```make wator```
+1.  Pour l'exécution, faire :
+    ```
+    make wator
+    ```
 
 ### TP2 - Question
 
