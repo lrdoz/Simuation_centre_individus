@@ -153,5 +153,3 @@ L'individue, peut ce déplacer dans l'environement, manger certain agent, et mou
 
 1. Pour l'éxécution il simplement nécessaire de faire :
     ```make hunter```
-
-## TP4 NetLog
