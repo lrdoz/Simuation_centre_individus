@@ -19,6 +19,8 @@ class Balle(Agent):
 
         self.torus = data[0]
 
+        self.rebond = 0
+
     def swap(self, agent):
         """
         Swap la direction de 2 agents
@@ -44,6 +46,7 @@ class Balle(Agent):
         :param env: Environement de l'agent
         """
         self.change = False
+        self.rebond = 0
 
         # on fait bouger l'agent
         newPosX = self.posX + (self.pasX) # nouveau posX
@@ -61,11 +64,12 @@ class Balle(Agent):
             self.setPosition(newPosX, newPosY)
 
         else: # sinon, échange de valeur
-            r = random.randint(0, 1)
-            if r == 0:
-                self.swap_pas(maybeAgent)
-            else :
-                self.swap(maybeAgent)
+            self.rebond = 1
+            # r = random.randint(0, 1)
+            # if r == 0:
+            self.swap_pas(maybeAgent)
+            # else :
+            #     self.swap(maybeAgent)
 
             newPosX = self.posX + self.pasX # nouveau posX
             newPosY = self.posY + self.pasY # nouveau posY
@@ -99,3 +103,6 @@ class Balle(Agent):
                 self.pasY *= -1
 
         return newPosX, newPosY
+
+    def toPrint(self):
+        print(str(self.posX)+","+str(self.posY)+","+str(self.pasX)+","+str(self.pasY)+","+str(self.rebond))
