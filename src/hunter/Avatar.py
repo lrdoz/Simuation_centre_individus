@@ -9,9 +9,10 @@ class Avatar(Agent):
         # position initiale de l'avatar
         super(Avatar, self).__init__(posX, posY)
 
-        self.vector = (0,1)        
+        self.vector = (0,1)
         self.form = "circle"
         self.delay = data[0]
+        self.color = "yellow"
 
     def decide(self, env):
         """
@@ -33,7 +34,7 @@ class Avatar(Agent):
                 env.setAgentPosition(self, xp, yp)
                 self.posX, self.posY = xp, yp
                 env.updateValues(xp, yp)
-                
+
             elif case.getType() == 3:
                 env.kill(xp, yp)
 
@@ -50,7 +51,7 @@ class Avatar(Agent):
         return "yellow"
 
     def on_press(self, key):
-        
+
         #On change le vector du pac man
         try:
             if key == keyboard.Key.down: #down

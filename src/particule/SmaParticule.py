@@ -74,19 +74,27 @@ class SMA:
             for ag in self.order:
                 self.env.l_agents[ag].decide(self.env)
                 if (self.trace):
-                    self.env.l_agents[ag].describe()
+                    self.n_rebond += self.env.l_agents[ag].rebond
+                    self.t_rebond += self.env.l_agents[ag].rebond
+                    self.env.l_agents[ag].toPrint()
 
-        if (self.delay):
+        if (self.delay): # ajoute un delay
             self.time+= 1
 
         if (self.trace):
+            print("Turn Rebond;"+str(self.n_rebond))
+            print("Total Rebond;"+str(self.t_rebond))
             print("Turn;"+str(self.nturn))
+            self.n_rebond = 0
         self.view.set_agent(self.time, self.env.l_agents, self.turn)
 
 
     def run(self):
         """
         """
+        if self.trace :
+            self.n_rebond = 0
+            self.t_rebond = 0
         self.view.set_agent(self.time, self.env.l_agents, self.turn)
         self.view.mainloop()
 
