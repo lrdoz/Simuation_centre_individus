@@ -9,7 +9,7 @@ import json
 
 from src.wator.Shark import Shark
 from src.wator.Fish import Fish
-# from src.wator.graph import Graph
+from src.wator.Graph import Graph
 
 
 from pprint import pprint
@@ -49,6 +49,9 @@ class SMA:
 
         if (displayGraph):
             self.graph = Graph()
+            self.ltime= [x for x in range(0,sIntervale,1)]
+            self.nbShark = [0] * sIntervale
+            self.nbFish = [0] * sIntervale
 
         self.sIntervale = sIntervale
 
@@ -75,14 +78,25 @@ class SMA:
                     ag.decide(self.env)
 
         self.view.set_agent(self.time, self.env.l_agents, self.turn)
-    # def updateGraph(self):
-    #     """
-    #     Met à jour les graphes
-    #     """
-    
-    # for agent in self.env.l_agents:
+
+    def updateGraph(self):
+        """
+        Met à jour les graphes
+        """
+
+        nbShark = 0
+        nbFish = 0
+        for agent in self.env.l_agents:
+            if agent.getType() == 1:
+                nbFish += 1
+            else:
+                nbShark += 1
         
-    #     self.graph.update(self.times, self.nbShark, self.nbFish)
+        self.nbShark = self.nbShark[1:] + [nbShark]
+        self.nbFish = self.nbFish[1:] + [nbFish]
+        self.ltime = self.ltime[1:] + [self.ltime[-1]+1]
+
+        self.graph.update(self.ltime, self.nbShark, self.nbFish)
 
     def run(self):
         self.view.set_agent(self.time, self.env.l_agents, self.turn)
